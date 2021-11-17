@@ -407,6 +407,7 @@ extern gimple_opt_pass *make_pass_cd_dce (gcc::context *ctxt);
 extern gimple_opt_pass *make_pass_call_cdce (gcc::context *ctxt);
 extern gimple_opt_pass *make_pass_merge_phi (gcc::context *ctxt);
 extern gimple_opt_pass *make_pass_thread_jumps (gcc::context *ctxt);
+extern gimple_opt_pass *make_pass_thread_jumps_full (gcc::context *ctxt);
 extern gimple_opt_pass *make_pass_early_thread_jumps (gcc::context *ctxt);
 extern gimple_opt_pass *make_pass_split_crit_edges (gcc::context *ctxt);
 extern gimple_opt_pass *make_pass_laddress (gcc::context *ctxt);
@@ -643,6 +644,9 @@ extern gimple_opt_pass *make_pass_update_address_taken (gcc::context *ctxt);
 extern gimple_opt_pass *make_pass_convert_switch (gcc::context *ctxt);
 extern gimple_opt_pass *make_pass_lower_vaarg (gcc::context *ctxt);
 extern gimple_opt_pass *make_pass_gimple_isel (gcc::context *ctxt);
+extern gimple_opt_pass *make_pass_harden_compares (gcc::context *ctxt);
+extern gimple_opt_pass *make_pass_harden_conditional_branches (gcc::context
+							       *ctxt);
 
 /* Current optimization pass.  */
 extern opt_pass *current_pass;

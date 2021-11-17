@@ -265,21 +265,21 @@
 #define HAVE_btrunchf2 ((TARGET_FLOAT) && (AARCH64_ISA_F16))
 #define HAVE_ceilhf2 ((TARGET_FLOAT) && (AARCH64_ISA_F16))
 #define HAVE_floorhf2 ((TARGET_FLOAT) && (AARCH64_ISA_F16))
-#define HAVE_frintnhf2 ((TARGET_FLOAT) && (AARCH64_ISA_F16))
+#define HAVE_roundevenhf2 ((TARGET_FLOAT) && (AARCH64_ISA_F16))
 #define HAVE_nearbyinthf2 ((TARGET_FLOAT) && (AARCH64_ISA_F16))
 #define HAVE_rinthf2 ((TARGET_FLOAT) && (AARCH64_ISA_F16))
 #define HAVE_roundhf2 ((TARGET_FLOAT) && (AARCH64_ISA_F16))
 #define HAVE_btruncsf2 (TARGET_FLOAT)
 #define HAVE_ceilsf2 (TARGET_FLOAT)
 #define HAVE_floorsf2 (TARGET_FLOAT)
-#define HAVE_frintnsf2 (TARGET_FLOAT)
+#define HAVE_roundevensf2 (TARGET_FLOAT)
 #define HAVE_nearbyintsf2 (TARGET_FLOAT)
 #define HAVE_rintsf2 (TARGET_FLOAT)
 #define HAVE_roundsf2 (TARGET_FLOAT)
 #define HAVE_btruncdf2 (TARGET_FLOAT)
 #define HAVE_ceildf2 (TARGET_FLOAT)
 #define HAVE_floordf2 (TARGET_FLOAT)
-#define HAVE_frintndf2 (TARGET_FLOAT)
+#define HAVE_roundevendf2 (TARGET_FLOAT)
 #define HAVE_nearbyintdf2 (TARGET_FLOAT)
 #define HAVE_rintdf2 (TARGET_FLOAT)
 #define HAVE_rounddf2 (TARGET_FLOAT)
@@ -437,9 +437,6 @@
 #define HAVE_aarch64_movtilow_tilow (TARGET_FLOAT && (reload_completed || reload_in_progress))
 #define HAVE_add_losym_si (ptr_mode == SImode || Pmode == SImode)
 #define HAVE_add_losym_di (ptr_mode == DImode || Pmode == DImode)
-#define HAVE_ldr_got_small_si (ptr_mode == SImode)
-#define HAVE_ldr_got_small_di (ptr_mode == DImode)
-#define HAVE_ldr_got_small_sidi (TARGET_ILP32)
 #define HAVE_ldr_got_small_28k_si (ptr_mode == SImode)
 #define HAVE_ldr_got_small_28k_di (ptr_mode == DImode)
 #define HAVE_ldr_got_small_28k_sidi (TARGET_ILP32)
@@ -2255,35 +2252,35 @@
 #define HAVE_btruncv4hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
 #define HAVE_ceilv4hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
 #define HAVE_floorv4hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
-#define HAVE_frintnv4hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
+#define HAVE_roundevenv4hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
 #define HAVE_nearbyintv4hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
 #define HAVE_rintv4hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
 #define HAVE_roundv4hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
 #define HAVE_btruncv8hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
 #define HAVE_ceilv8hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
 #define HAVE_floorv8hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
-#define HAVE_frintnv8hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
+#define HAVE_roundevenv8hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
 #define HAVE_nearbyintv8hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
 #define HAVE_rintv8hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
 #define HAVE_roundv8hf2 ((TARGET_SIMD) && (TARGET_SIMD_F16INST))
 #define HAVE_btruncv2sf2 (TARGET_SIMD)
 #define HAVE_ceilv2sf2 (TARGET_SIMD)
 #define HAVE_floorv2sf2 (TARGET_SIMD)
-#define HAVE_frintnv2sf2 (TARGET_SIMD)
+#define HAVE_roundevenv2sf2 (TARGET_SIMD)
 #define HAVE_nearbyintv2sf2 (TARGET_SIMD)
 #define HAVE_rintv2sf2 (TARGET_SIMD)
 #define HAVE_roundv2sf2 (TARGET_SIMD)
 #define HAVE_btruncv4sf2 (TARGET_SIMD)
 #define HAVE_ceilv4sf2 (TARGET_SIMD)
 #define HAVE_floorv4sf2 (TARGET_SIMD)
-#define HAVE_frintnv4sf2 (TARGET_SIMD)
+#define HAVE_roundevenv4sf2 (TARGET_SIMD)
 #define HAVE_nearbyintv4sf2 (TARGET_SIMD)
 #define HAVE_rintv4sf2 (TARGET_SIMD)
 #define HAVE_roundv4sf2 (TARGET_SIMD)
 #define HAVE_btruncv2df2 (TARGET_SIMD)
 #define HAVE_ceilv2df2 (TARGET_SIMD)
 #define HAVE_floorv2df2 (TARGET_SIMD)
-#define HAVE_frintnv2df2 (TARGET_SIMD)
+#define HAVE_roundevenv2df2 (TARGET_SIMD)
 #define HAVE_nearbyintv2df2 (TARGET_SIMD)
 #define HAVE_rintv2df2 (TARGET_SIMD)
 #define HAVE_roundv2df2 (TARGET_SIMD)
@@ -10275,21 +10272,21 @@ extern rtx        gen_rev16di2_alt                                   (rtx, rtx, 
 extern rtx        gen_btrunchf2                                      (rtx, rtx);
 extern rtx        gen_ceilhf2                                        (rtx, rtx);
 extern rtx        gen_floorhf2                                       (rtx, rtx);
-extern rtx        gen_frintnhf2                                      (rtx, rtx);
+extern rtx        gen_roundevenhf2                                   (rtx, rtx);
 extern rtx        gen_nearbyinthf2                                   (rtx, rtx);
 extern rtx        gen_rinthf2                                        (rtx, rtx);
 extern rtx        gen_roundhf2                                       (rtx, rtx);
 extern rtx        gen_btruncsf2                                      (rtx, rtx);
 extern rtx        gen_ceilsf2                                        (rtx, rtx);
 extern rtx        gen_floorsf2                                       (rtx, rtx);
-extern rtx        gen_frintnsf2                                      (rtx, rtx);
+extern rtx        gen_roundevensf2                                   (rtx, rtx);
 extern rtx        gen_nearbyintsf2                                   (rtx, rtx);
 extern rtx        gen_rintsf2                                        (rtx, rtx);
 extern rtx        gen_roundsf2                                       (rtx, rtx);
 extern rtx        gen_btruncdf2                                      (rtx, rtx);
 extern rtx        gen_ceildf2                                        (rtx, rtx);
 extern rtx        gen_floordf2                                       (rtx, rtx);
-extern rtx        gen_frintndf2                                      (rtx, rtx);
+extern rtx        gen_roundevendf2                                   (rtx, rtx);
 extern rtx        gen_nearbyintdf2                                   (rtx, rtx);
 extern rtx        gen_rintdf2                                        (rtx, rtx);
 extern rtx        gen_rounddf2                                       (rtx, rtx);
@@ -10447,9 +10444,6 @@ extern rtx        gen_aarch64_movtflow_di                            (rtx, rtx);
 extern rtx        gen_aarch64_movtilow_tilow                         (rtx, rtx);
 extern rtx        gen_add_losym_si                                   (rtx, rtx, rtx);
 extern rtx        gen_add_losym_di                                   (rtx, rtx, rtx);
-extern rtx        gen_ldr_got_small_si                               (rtx, rtx, rtx);
-extern rtx        gen_ldr_got_small_di                               (rtx, rtx, rtx);
-extern rtx        gen_ldr_got_small_sidi                             (rtx, rtx, rtx);
 extern rtx        gen_ldr_got_small_28k_si                           (rtx, rtx, rtx);
 extern rtx        gen_ldr_got_small_28k_di                           (rtx, rtx, rtx);
 extern rtx        gen_ldr_got_small_28k_sidi                         (rtx, rtx, rtx);
@@ -11495,35 +11489,35 @@ extern rtx        gen_fnmav2df4                                      (rtx, rtx, 
 extern rtx        gen_btruncv4hf2                                    (rtx, rtx);
 extern rtx        gen_ceilv4hf2                                      (rtx, rtx);
 extern rtx        gen_floorv4hf2                                     (rtx, rtx);
-extern rtx        gen_frintnv4hf2                                    (rtx, rtx);
+extern rtx        gen_roundevenv4hf2                                 (rtx, rtx);
 extern rtx        gen_nearbyintv4hf2                                 (rtx, rtx);
 extern rtx        gen_rintv4hf2                                      (rtx, rtx);
 extern rtx        gen_roundv4hf2                                     (rtx, rtx);
 extern rtx        gen_btruncv8hf2                                    (rtx, rtx);
 extern rtx        gen_ceilv8hf2                                      (rtx, rtx);
 extern rtx        gen_floorv8hf2                                     (rtx, rtx);
-extern rtx        gen_frintnv8hf2                                    (rtx, rtx);
+extern rtx        gen_roundevenv8hf2                                 (rtx, rtx);
 extern rtx        gen_nearbyintv8hf2                                 (rtx, rtx);
 extern rtx        gen_rintv8hf2                                      (rtx, rtx);
 extern rtx        gen_roundv8hf2                                     (rtx, rtx);
 extern rtx        gen_btruncv2sf2                                    (rtx, rtx);
 extern rtx        gen_ceilv2sf2                                      (rtx, rtx);
 extern rtx        gen_floorv2sf2                                     (rtx, rtx);
-extern rtx        gen_frintnv2sf2                                    (rtx, rtx);
+extern rtx        gen_roundevenv2sf2                                 (rtx, rtx);
 extern rtx        gen_nearbyintv2sf2                                 (rtx, rtx);
 extern rtx        gen_rintv2sf2                                      (rtx, rtx);
 extern rtx        gen_roundv2sf2                                     (rtx, rtx);
 extern rtx        gen_btruncv4sf2                                    (rtx, rtx);
 extern rtx        gen_ceilv4sf2                                      (rtx, rtx);
 extern rtx        gen_floorv4sf2                                     (rtx, rtx);
-extern rtx        gen_frintnv4sf2                                    (rtx, rtx);
+extern rtx        gen_roundevenv4sf2                                 (rtx, rtx);
 extern rtx        gen_nearbyintv4sf2                                 (rtx, rtx);
 extern rtx        gen_rintv4sf2                                      (rtx, rtx);
 extern rtx        gen_roundv4sf2                                     (rtx, rtx);
 extern rtx        gen_btruncv2df2                                    (rtx, rtx);
 extern rtx        gen_ceilv2df2                                      (rtx, rtx);
 extern rtx        gen_floorv2df2                                     (rtx, rtx);
-extern rtx        gen_frintnv2df2                                    (rtx, rtx);
+extern rtx        gen_roundevenv2df2                                 (rtx, rtx);
 extern rtx        gen_nearbyintv2df2                                 (rtx, rtx);
 extern rtx        gen_rintv2df2                                      (rtx, rtx);
 extern rtx        gen_roundv2df2                                     (rtx, rtx);
